@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check } from "lucide-react";
-import { cars, getCar } from "@/data/cars";
+import { getFleet, getFleetCar } from "@/lib/fleet";
 import { CarSilhouette } from "@/components/CarSilhouette";
 import { QuoteWidget } from "@/components/QuoteWidget";
 import { JsonLd } from "@/components/JsonLd";
@@ -10,12 +10,12 @@ import { CarCard } from "@/components/CarCard";
 import { breadcrumbSchema, carSchema } from "@/lib/schema";
 import { site } from "@/config/site";
 
-export function generateStaticParams() {
-  return cars.map((c) => ({ slug: c.slug }));
+export async function generateStaticParams() {
+  return (await getFleet()).map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const car = getCar((await params).slug);
+  const car = await getFleetCar((await params).slug);
   if (!car) return {};
   return {
     title: `${car.name} rental in Denver`,
@@ -31,7 +31,7 @@ export default async function CarPage({
   params: Promise<{ slug: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const car = getCar((await params).slug);
+  const car = await getFleetCar((await params).slug);
   if (!car) notFound();
   const sp = await searchParams;
   const s = (k: string) => (typeof sp[k] === "string" ? (sp[k] as string) : undefined);
@@ -108,7 +108,7 @@ export default async function CarPage({
       <section className="wrap mt-20">
         <h2 className="mb-6 font-display text-[26px] font-semibold">Other cars</h2>
         <div className="grid max-w-4xl gap-5 sm:grid-cols-2">
-          {cars.filter((c) => c.slug !== car.slug).slice(0, 3).map((c) => <CarCard key={c.slug} car={c} />)}
+          {(await getFleet()).filter((c) => c.slug !== car.slug).slice(0, 3).map((c) => <CarCard key={c.slug} car={c} />)}
         </div>
       </section>
       <JsonLd data={carSchema(car)} />

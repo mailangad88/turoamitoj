@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cars } from "@/data/cars";
+import { getFleet } from "@/lib/fleet";
+import { unavailableCars } from "@/lib/bookings";
+import { fromDenverLocal } from "@/lib/time";
 import { CarCard } from "@/components/CarCard";
 import { PageHeader } from "@/components/PageHeader";
 import { photos } from "@/data/photos";
@@ -25,6 +27,10 @@ export default async function CarsPage({ searchParams }: { searchParams: Promise
   const params = await searchParams;
   const trip = parseTrip(params);
   const f = (typeof params.filter === "string" ? params.filter : "all") as Filter;
+  const cars = await getFleet();
+  const start = trip ? fromDenverLocal(trip.start) : null;
+  const end = trip ? fromDenverLocal(trip.end) : null;
+  const booked = start && end ? await unavailableCars(start, end).catch(() => new Set<string>()) : new Set<string>();
   const list = cars.filter((c) =>
     f === "7-seats" ? c.seats >= 7 : f === "ski" ? c.skiRack : true,
   );
@@ -73,7 +79,7 @@ export default async function CarsPage({ searchParams }: { searchParams: Promise
         {list.length ? (
           <div className="grid max-w-4xl gap-5 sm:grid-cols-2">
             {list.map((c) => (
-              <CarCard key={c.slug} car={c} trip={trip} />
+              <CarCard key={c.slug} car={c} trip={trip} booked={booked.has(c.slug)} />
             ))}
           </div>
         ) : (

@@ -11,7 +11,7 @@ import { DeliveryProcess } from "@/components/diagrams/DeliveryProcess";
 import { FaqList } from "@/components/FaqList";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
-import { cars } from "@/data/cars";
+import { getFleet } from "@/lib/fleet";
 import { faq } from "@/data/faq";
 import { guides } from "@/content/guides";
 import { faqSchema } from "@/lib/schema";
@@ -53,7 +53,8 @@ const included = [
   "Free date change if I-70 closes",
 ];
 
-export default function Home() {
+export default async function Home() {
+  const cars = await getFleet();
   return (
     <>
       <section className="relative isolate overflow-hidden bg-ink text-cream">

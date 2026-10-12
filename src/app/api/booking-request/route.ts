@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
+import { site } from "@/config/site";
 import { bookingRequestSchema } from "@/lib/booking";
-import { getCar } from "@/data/cars";
+import { getFleetCar } from "@/lib/fleet";
+import { conflicts, createBooking } from "@/lib/bookings";
+import { getDb } from "@/lib/db/client";
+import { fromDenverLocal } from "@/lib/time";
 import { getZone } from "@/data/zones";
 import { quote, rentalDays, usd, type AddOnId } from "@/lib/pricing";
 
@@ -18,11 +22,27 @@ export async function POST(req: Request) {
   const r = parsed.data;
   if (r.website) return NextResponse.json({ ok: true, emailed: false }); // bot
 
-  const car = getCar(r.car);
+  const car = await getFleetCar(r.car);
   const zone = getZone(r.zone);
-  const days = rentalDays(new Date(r.start), new Date(r.end));
-  if (!car || !zone || !days) {
+  const startsAt = fromDenverLocal(r.start);
+  const endsAt = fromDenverLocal(r.end);
+  const days = startsAt && endsAt ? rentalDays(startsAt, endsAt) : 0;
+  if (!car || !zone || !startsAt || !endsAt || !days) {
     return NextResponse.json({ ok: false, error: "That car, delivery area or date range isn't available." }, { status: 422 });
+  }
+  if (startsAt.getTime() < Date.now() - 3600_000) {
+    return NextResponse.json({ ok: false, error: "Pick a pickup time in the future." }, { status: 422 });
+  }
+
+  const db = await getDb().catch((err) => {
+    console.error("Database unavailable for booking request", err);
+    return null;
+  });
+  if (db && (await conflicts(car.slug, startsAt, endsAt)).length) {
+    return NextResponse.json(
+      { ok: false, error: `The ${car.name} is already booked for part of those dates. Try other dates or another car.` },
+      { status: 409 },
+    );
   }
   const fee = zone.fee ?? 0;
   const q = quote({ car, days, deliveryFee: fee, returnFee: fee, addOns: r.addons as AddOnId[] });
@@ -35,9 +55,36 @@ export async function POST(req: Request) {
     `Quoted total: ${usd(q.total)} (deposit ${usd(q.deposit)})`,
     `Guest: ${r.name} · ${r.email} · ${r.phone} · age ${r.driverAge}`,
     r.notes ? `Notes: ${r.notes}` : "",
+    `Review and confirm: ${site.url}/admin/bookings`,
   ]
     .filter(Boolean)
     .join("\n");
+
+  let saved = false;
+  if (db) {
+    try {
+      await createBooking({
+        carSlug: car.slug,
+        startsAt,
+        endsAt,
+        status: "request",
+        source: "website",
+        guestName: r.name,
+        guestEmail: r.email,
+        guestPhone: r.phone,
+        driverAge: r.driverAge,
+        zone: zone.id,
+        address: r.address,
+        addOns: r.addons,
+        quoteTotal: q.total,
+        deposit: q.deposit,
+        notes: r.notes,
+      });
+      saved = true;
+    } catch (err) {
+      console.error("Saving booking request failed", err);
+    }
+  }
 
   const key = process.env.RESEND_API_KEY;
   const to = process.env.BOOKING_NOTIFY_EMAIL;
@@ -54,5 +101,6 @@ export async function POST(req: Request) {
   } else {
     console.log(summary);
   }
-  return NextResponse.json({ ok: true, emailed });
+  if (!saved && !emailed) console.warn("Booking request was neither saved nor emailed; it exists only in this log line.");
+  return NextResponse.json({ ok: true, emailed, saved });
 }

@@ -1,4 +1,5 @@
-import { cars, type Car } from "@/data/cars";
+import type { Car } from "@/data/cars";
+import { getFleet } from "@/lib/fleet";
 import { CarCard } from "./CarCard";
 import { CtaBand } from "./CtaBand";
 import { FaqList } from "./FaqList";
@@ -22,8 +23,8 @@ export type SeasonalProps = {
   photo?: Photo;
 };
 
-export function SeasonalPage(p: SeasonalProps) {
-  const list = cars.filter(p.carFilter);
+export async function SeasonalPage(p: SeasonalProps) {
+  const list = (await getFleet()).filter(p.carFilter);
   return (
     <>
       <PageHeader photo={p.photo} eyebrow={p.eyebrow} title={p.title} lede={p.lede}>

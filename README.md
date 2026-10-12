@@ -47,3 +47,23 @@ Everything marked PLACEHOLDER needs a real answer before launch. See `docs/PLACE
 
 - Scenery photos come from Unsplash under the Unsplash License and are listed in `src/data/photos.ts`, with credits on each hero and on `/credits`. None of them show our own cars; swap in real fleet photos as they're shot.
 - The homepage route animation is a [Remotion](https://www.remotion.dev) composition (`src/remotion/RouteToMountains.tsx`) played live with `@remotion/player`. Remotion is free for individuals and companies with up to 3 employees; a larger company needs a [company license](https://www.remotion.pro/license).
+
+## Admin
+
+Sign in at `/admin` to run the business side:
+
+- **Overview**: new requests to answer and the next two weeks of pickups and returns.
+- **Bookings**: every website request, Turo trip, direct booking and block. Confirm or decline requests, edit dates, add notes.
+- **Calendar**: one row per car for the month. Tap an empty day to add a booking or a Turo block.
+- **Fleet**: add cars, edit details, hide a car from the site.
+- **Pricing**: daily rates and deposit tier per car. Discounts, delivery fees and add-ons are shown here and still set in code.
+
+A confirmed booking (or a Turo block) holds the car: the website shows it as booked for those dates and refuses new requests that overlap. Requests don't hold the car, so two guests can ask for the same dates and you choose.
+
+Setup on Vercel:
+
+1. Storage → Create Database → Neon (Postgres), connected to this project. It sets `DATABASE_URL`, and the tables and current fleet are created on first use.
+2. Settings → Environment Variables: `ADMIN_PASSWORD` and `ADMIN_SESSION_SECRET` (32+ random characters).
+3. Redeploy.
+
+Locally, `npm run dev` uses a built-in Postgres (PGlite) stored in `.data/pglite`, so no setup is needed beyond the two admin variables in `.env.local`.

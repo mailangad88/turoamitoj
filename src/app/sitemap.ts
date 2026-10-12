@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { cars } from "@/data/cars";
+import { getFleet } from "@/lib/fleet";
 import { guides } from "@/content/guides";
 import { abs } from "@/lib/schema";
 
@@ -9,7 +9,8 @@ const staticPaths = [
   "/tools/ski-trip-estimator", "/tools/turo-vs-direct", "/business", "/about", "/faq", "/credits",
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const cars = await getFleet();
   return [
     ...staticPaths.map((p) => ({ url: abs(p), changeFrequency: "weekly" as const, priority: p === "/" ? 1 : 0.7 })),
     ...cars.map((c) => ({ url: abs(`/cars/${c.slug}`), changeFrequency: "weekly" as const, priority: 0.8 })),

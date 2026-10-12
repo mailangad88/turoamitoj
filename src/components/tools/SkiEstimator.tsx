@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { cars } from "@/data/cars";
+import type { Car } from "@/data/cars";
 import { quote, usd } from "@/lib/pricing";
 import { getZone } from "@/data/zones";
 
@@ -23,7 +23,7 @@ const mpg: Record<string, number> = {
 const GAS_PRICE = 3.4; // assumption, $/gallon
 const EV_COST_PER_MILE = 0.07; // assumption
 
-export function SkiEstimator() {
+export function SkiEstimator({ cars }: { cars: Car[] }) {
   const [resort, setResort] = useState("breckenridge");
   const [days, setDays] = useState(4);
   const [people, setPeople] = useState(4);

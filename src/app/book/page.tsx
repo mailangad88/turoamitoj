@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getCar } from "@/data/cars";
+import { getFleetCar } from "@/lib/fleet";
 import { getZone } from "@/data/zones";
 import { BookingForm } from "@/components/BookingForm";
 import { quote, rentalDays, usd, type AddOnId } from "@/lib/pricing";
@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "Request a car", robots: { index: fal
 export default async function BookPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const sp = await searchParams;
   const s = (k: string) => (typeof sp[k] === "string" ? (sp[k] as string) : "");
-  const car = getCar(s("car"));
+  const car = await getFleetCar(s("car") ?? "");
   const zone = getZone(s("zone") || "pickup");
   const days = rentalDays(new Date(s("start")), new Date(s("end")));
   const addons = s("addons") ? s("addons").split(",") : [];

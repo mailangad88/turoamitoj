@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { cars } from "@/data/cars";
+import type { Car } from "@/data/cars";
 import { quote, usd } from "@/lib/pricing";
 
-export function TuroVsDirect() {
+export function TuroVsDirect({ cars }: { cars: Car[] }) {
   const [slug, setSlug] = useState(cars[0].slug);
   const [days, setDays] = useState(3);
   const [turoTotal, setTuroTotal] = useState("");
