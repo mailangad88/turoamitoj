@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How the pieces talk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: #f7f6f3; --color-ink: #111111; --color-muted: #5f5f66; --color-accent: #c2410c;
+      --font-sans: 'Geist', system-ui, sans-serif; --font-serif: 'Instrument Serif', serif; --font-mono: 'Geist Mono', ui-monospace, monospace;
+    }
+    body { font-family: var(--font-sans); background: var(--color-paper); color: var(--color-ink); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
+    .frame { max-width: 1200px; width: 100%; }
+    .diagram-container { width: 100%; overflow-x: auto; }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.5rem; }
+    h1 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1.5rem; }
+    svg { width: 100%; min-width: 960px; display: block; }
+    @media print { .diagram-container { overflow-x: visible; } svg { min-width: 0; } }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Architecture · Diagram Design</p>
+    <h1>How the pieces talk</h1>
+    <div class="diagram-container">
+      <svg viewBox="0 0 960 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sys-title sys-desc">
+        <title id="sys-title">How the pieces talk</title>
+        <desc id="sys-desc">Guests book on the Next.js site through the booking engine, which writes to the master calendar. Turo trips flow in one way by extension or CSV; direct bookings become a manual block-on-Turo task. Stripe handles payment, deposit and identity.</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#5f5f66"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#c2410c"/></marker>
+          <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+          <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(20,34,58,0.10)"/></pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="#f7f6f3"/>
+        <rect width="100%" height="100%" fill="url(#dots)" opacity="0.55"/>
+
+        <!-- boundary: your system -->
+        <rect x="236" y="48" width="468" height="432" rx="10" fill="none" stroke="rgba(20,34,58,0.25)" stroke-dasharray="5 5"/>
+        <text x="252" y="70" font-family="'Geist Mono', monospace" font-size="8" letter-spacing="0.18em" fill="#5a6580">YOUR SYSTEM · VERCEL</text>
+
+        <!-- arrows -->
+        <line x1="200" y1="128" x2="256" y2="128" stroke="#5f5f66" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="440" y1="128" x2="496" y2="128" stroke="#5f5f66" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="680" y1="128" x2="736" y2="128" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+        <line x1="590" y1="156" x2="590" y2="236" stroke="#c2410c" stroke-width="1.6" marker-end="url(#arrow-accent)"/>
+        <line x1="350" y1="236" x2="350" y2="160" stroke="#5f5f66" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M500 270 L470 270 L470 140 L444 140" fill="none" stroke="#5f5f66" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="740" y1="262" x2="684" y2="262" stroke="#5f5f66" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+        <line x1="590" y1="304" x2="590" y2="396" stroke="#5f5f66" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M680 290 L710 290 L710 428 L736 428" fill="none" stroke="#5f5f66" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+        <!-- arrow labels -->
+        <g font-family="'Geist Mono', monospace" font-size="8" letter-spacing="0.06em" fill="#5f5f66">
+          <text x="684" y="92">PAY · HOLD · ID</text>
+          <text x="600" y="200" fill="#c2410c">WRITES BOOKING</text>
+          <text x="744" y="224">EXTENSION OR CSV</text>
+          <text x="718" y="352">"BLOCK THESE</text>
+          <text x="718" y="364">DATES" TASK</text>
+          <text x="360" y="200">CONTENT</text>
+          <text x="476" y="208">AVAILABILITY</text>
+        </g>
+
+        <!-- nodes -->
+        <g font-family="'Geist', sans-serif">
+          <rect x="40" y="100" width="160" height="56" rx="6" fill="rgba(20,34,58,0.03)" stroke="rgba(20,34,58,0.3)"/>
+          <text x="120" y="126" text-anchor="middle" font-size="12" font-weight="600" fill="#111111">Guest</text>
+          <text x="120" y="142" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9" fill="#5f5f66">phone · search · book</text>
+
+          <rect x="260" y="100" width="180" height="56" rx="6" fill="#fffcf6" stroke="#111111"/>
+          <text x="350" y="126" text-anchor="middle" font-size="12" font-weight="600" fill="#111111">Next.js site</text>
+          <text x="350" y="142" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9" fill="#5f5f66">fleet · seasonal · guides</text>
+
+          <rect x="500" y="100" width="180" height="56" rx="6" fill="#fffcf6" stroke="#111111"/>
+          <text x="590" y="126" text-anchor="middle" font-size="12" font-weight="600" fill="#111111">Booking engine</text>
+          <text x="590" y="142" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9" fill="#5f5f66">request form → hosted → own</text>
+
+          <rect x="740" y="100" width="180" height="56" rx="6" fill="rgba(20,34,58,0.03)" stroke="rgba(20,34,58,0.3)"/>
+          <text x="830" y="126" text-anchor="middle" font-size="12" font-weight="600" fill="#111111">Stripe</text>
+          <text x="830" y="142" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9" fill="#5f5f66">payment · deposit · Identity</text>
+
+          <rect x="260" y="240" width="180" height="56" rx="6" fill="#fffcf6" stroke="#111111"/>
+          <text x="350" y="266" text-anchor="middle" font-size="12" font-weight="600" fill="#111111">Sanity CMS</text>
+          <text x="350" y="282" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9" fill="#5f5f66">phase 2 · guides, FAQs</text>
+
+          <rect x="500" y="240" width="180" height="64" rx="6" fill="rgba(255,122,0,0.14)" stroke="#c2410c"/>
+          <text x="590" y="266" text-anchor="middle" font-size="12" font-weight="600" fill="#111111">Master calendar</text>
+          <text x="590" y="282" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9" fill="#5f5f66">+ bookings DB (Postgres)</text>
+          <text x="590" y="295" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9" fill="#5f5f66">direct · Turo · maintenance</text>
+
+          <rect x="740" y="234" width="180" height="56" rx="6" fill="rgba(20,34,58,0.03)" stroke="rgba(20,34,58,0.3)"/>
+          <text x="830" y="260" text-anchor="middle" font-size="12" font-weight="600" fill="#111111">Turo Host Hub</text>
+          <text x="830" y="276" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9" fill="#5f5f66">no API · read-only</text>
+
+          <rect x="500" y="400" width="180" height="56" rx="6" fill="#fffcf6" stroke="#111111"/>
+          <text x="590" y="426" text-anchor="middle" font-size="12" font-weight="600" fill="#111111">Admin dashboard</text>
+          <text x="590" y="442" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9" fill="#5f5f66">phase 3 · fleet · P&amp;L</text>
+
+          <rect x="740" y="400" width="180" height="56" rx="6" fill="rgba(20,34,58,0.03)" stroke="rgba(20,34,58,0.3)"/>
+          <text x="830" y="426" text-anchor="middle" font-size="12" font-weight="600" fill="#111111">You, in the Turo app</text>
+          <text x="830" y="442" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="9" fill="#5f5f66">manual block</text>
+        </g>
+
+        <line x1="40" y1="494" x2="920" y2="494" stroke="rgba(20,34,58,0.10)" stroke-width="0.8"/>
+        <text x="40" y="510" font-family="'Geist Mono', monospace" font-size="8" letter-spacing="0.18em" fill="#5a6580">SOLID = AUTOMATIC · DASHED = BROWSER EXTENSION OR CSV UPLOAD · BLUE = EXTERNAL API · GOLD = FOCAL</text>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
