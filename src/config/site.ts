@@ -5,7 +5,9 @@ export const site = {
   tagline: "Mountain-ready cars, delivered anywhere in Denver.",
   description:
     "Direct-booking car rentals in Denver: AWD and 4x4 cars on winter-rated tires with ski racks, delivered to your door or hotel. Book direct and skip the platform fees.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000"),
   phone: "(720) 555-0142", // PLACEHOLDER (555 numbers are reserved for fiction)
   email: "hello@example.com", // PLACEHOLDER
   city: "Denver",
