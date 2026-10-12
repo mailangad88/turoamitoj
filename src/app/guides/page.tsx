@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
+import { photos } from "@/data/photos";
 import { guides } from "@/content/guides";
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ const planned = [
 export default function Page() {
   return (
     <>
-      <PageHeader eyebrow="Guides" title="Colorado driving guides" lede="Written by people who drive I-70 every week. Pick the trip you're planning." />
+      <PageHeader photo={photos.continentalDivideRoad} eyebrow="Guides" title="Colorado driving guides" lede="Written by people who drive I-70 every week. Pick the trip you're planning." />
       <section className="wrap mt-10 grid gap-5 md:grid-cols-3">
         {guides.map(({ meta }) => (
           <Link key={meta.slug} href={`/guides/${meta.slug}`} className="card flex flex-col p-6 transition hover:border-navy/40">

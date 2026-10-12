@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SeasonalPage } from "@/components/SeasonalPage";
+import { photos } from "@/data/photos";
 
 export const metadata: Metadata = {
   title: "Car rental for Rocky Mountain National Park",
@@ -11,6 +12,7 @@ export default function Page() {
   return (
     <SeasonalPage
       path="/rmnp"
+      photo={photos.rmnpNight}
       eyebrow="Road trips"
       title="Rocky Mountain National Park by car"
       lede="Estes Park is about 70 miles from Denver. A capable car gets you up Trail Ridge Road and to the trailheads before the lots fill."

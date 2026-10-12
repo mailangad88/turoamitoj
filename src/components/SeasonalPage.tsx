@@ -5,6 +5,7 @@ import { FaqList } from "./FaqList";
 import { JsonLd } from "./JsonLd";
 import { PageHeader } from "./PageHeader";
 import { TripSearchForm } from "./TripSearchForm";
+import type { Photo } from "@/data/photos";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 
 export type SeasonalProps = {
@@ -18,13 +19,14 @@ export type SeasonalProps = {
   faqs: { q: string; a: string }[];
   aside?: React.ReactNode;
   showSearch?: boolean;
+  photo?: Photo;
 };
 
 export function SeasonalPage(p: SeasonalProps) {
   const list = cars.filter(p.carFilter);
   return (
     <>
-      <PageHeader eyebrow={p.eyebrow} title={p.title} lede={p.lede}>
+      <PageHeader photo={p.photo} eyebrow={p.eyebrow} title={p.title} lede={p.lede}>
         {p.showSearch !== false && (
           <div className="card max-w-4xl p-4 sm:p-5">
             <TripSearchForm compact />

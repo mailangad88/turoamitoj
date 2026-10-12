@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SeasonalPage } from "@/components/SeasonalPage";
+import { photos } from "@/data/photos";
 
 export const metadata: Metadata = {
   title: "Car rental for Red Rocks concerts",
@@ -12,6 +13,7 @@ export default function Page() {
   return (
     <SeasonalPage
       path="/red-rocks"
+      photo={photos.redRocks}
       eyebrow="Concert season"
       title="Getting to Red Rocks by car"
       lede="Red Rocks is about 15 miles west of downtown Denver in Morrison. A car means no shuttle line at midnight and a detour to Golden or Evergreen before the show."

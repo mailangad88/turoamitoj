@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
+import { photos } from "@/data/photos";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <PageHeader eyebrow="About" title="A small Denver fleet, run by the person who answers the phone" />
+      <PageHeader photo={photos.holyCross} eyebrow="About" title="A small Denver fleet, run by the person who answers the phone" />
       <section className="wrap mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="prose-site">
           {/* PLACEHOLDER: replace with the owner's own story. */}

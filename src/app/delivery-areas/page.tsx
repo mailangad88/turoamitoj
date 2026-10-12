@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
+import { photos } from "@/data/photos";
 import { CtaBand } from "@/components/CtaBand";
 import { zones } from "@/data/zones";
 import { site } from "@/config/site";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <PageHeader eyebrow="Delivery" title="Delivery areas and fees" lede={`Free pickup at our home base in ${site.pickupArea}, or delivery to your door or hotel. Fees are per trip leg: delivery and return are charged separately.`} />
+      <PageHeader photo={photos.denverSkyline} eyebrow="Delivery" title="Delivery areas and fees" lede={`Free pickup at our home base in ${site.pickupArea}, or delivery to your door or hotel. Fees are per trip leg: delivery and return are charged separately.`} />
       <section className="wrap mt-10">
         <div className="overflow-x-auto rounded-lg border border-line bg-panel">
           <table className="w-full min-w-[560px] text-left text-[15px]">

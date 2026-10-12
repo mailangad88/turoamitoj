@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SeasonalPage } from "@/components/SeasonalPage";
+import { photos } from "@/data/photos";
 import { coloradoFees } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export default function Page() {
   return (
     <SeasonalPage
       path="/monthly-car-rental-denver"
+      photo={photos.unionStationHall}
       eyebrow="Monthly and relocation"
       title="Monthly car rental in Denver"
       lede="30% off the daily rate, delivered to your apartment, and maintenance handled by us. Book 31 days or more and Colorado's daily rental fees drop away."

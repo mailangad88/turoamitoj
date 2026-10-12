@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
+import { photos } from "@/data/photos";
 import { CtaBand } from "@/components/CtaBand";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <PageHeader
+      <PageHeader photo={photos.unionStation}
         eyebrow="Airport"
         title="Landing at DIA? Skip the rental shuttle."
         lede="We don't hand off cars at the airport terminals yet. Here's the fastest way to get your car instead."

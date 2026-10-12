@@ -3,6 +3,7 @@ import Link from "next/link";
 import { cars } from "@/data/cars";
 import { CarCard } from "@/components/CarCard";
 import { PageHeader } from "@/components/PageHeader";
+import { photos } from "@/data/photos";
 import { TripSearchForm } from "@/components/TripSearchForm";
 import { parseTrip } from "@/lib/search";
 
@@ -41,7 +42,7 @@ export default async function CarsPage({ searchParams }: { searchParams: Promise
 
   return (
     <>
-      <PageHeader
+      <PageHeader photo={photos.wranglerSnowField}
         eyebrow="The fleet"
         title="Cars built for Colorado"
         lede={

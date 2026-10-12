@@ -1,6 +1,9 @@
 import Link from "next/link";
-import { Mountain, PackageCheck, Snowflake, Truck } from "lucide-react";
-import { RidgelineArt } from "@/components/RidgelineArt";
+import Image from "next/image";
+import { ArrowRight, PackageCheck, Snowflake, Truck } from "lucide-react";
+import { PhotoCredit } from "@/components/PhotoCredit";
+import { RouteMotion } from "@/components/motion/RouteMotion";
+import { photos } from "@/data/photos";
 import { TripSearchForm } from "@/components/TripSearchForm";
 import { TrustRow } from "@/components/TrustRow";
 import { CarCard } from "@/components/CarCard";
@@ -32,11 +35,13 @@ const reasons = [
   },
 ];
 
+const hero = photos.jeepSnowRoad;
+
 const niches = [
-  { href: "/ski-rental-denver", title: "Ski trips", body: "Racks, roof boxes and rated tires for I-70.", tag: "Sept–May" },
-  { href: "/rmnp", title: "National parks", body: "Rocky Mountain, Great Sand Dunes, Moab.", tag: "Year round" },
-  { href: "/red-rocks", title: "Concert nights", body: "Get to Red Rocks and back without the shuttle.", tag: "Apr–Oct" },
-  { href: "/monthly-car-rental-denver", title: "Monthly", body: "30% off, and no daily state fees past 30 days.", tag: "31+ days" },
+  { href: "/ski-rental-denver", title: "Ski trips", body: "Racks, roof boxes and rated tires for I-70.", tag: "Sept–May", photo: photos.breckenridge },
+  { href: "/rmnp", title: "National parks", body: "Rocky Mountain, Great Sand Dunes, Moab.", tag: "Year round", photo: photos.rmnpNight },
+  { href: "/red-rocks", title: "Concert nights", body: "Get to Red Rocks and back without the shuttle.", tag: "Apr–Oct", photo: photos.redRocks },
+  { href: "/monthly-car-rental-denver", title: "Monthly", body: "30% off, and no daily state fees past 30 days.", tag: "31+ days", photo: photos.unionStationHall },
 ];
 
 const included = [
@@ -51,21 +56,40 @@ const included = [
 export default function Home() {
   return (
     <>
-      <section className="wrap grid items-stretch gap-8 py-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:py-14">
-        <div className="flex flex-col justify-center">
-          <p className="eyebrow mb-4">Denver car rental · delivered</p>
-          <h1 className="font-display text-[40px] font-semibold leading-[1.02] tracking-tight sm:text-[58px]">
-            Mountain-ready cars, delivered anywhere in Denver.
-          </h1>
-          <p className="mt-5 max-w-xl text-[18px] leading-relaxed text-navy-soft">
-            AWD and 4x4 cars on winter-rated tires, with ski racks and Traction Law compliance built in. Book direct and skip
-            the platform fees.
-          </p>
-          <div className="card mt-8 p-4 sm:p-5">
+      <section className="relative isolate overflow-hidden bg-navy text-cream">
+        <Image
+          src={hero.src}
+          alt={hero.alt}
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover"
+          style={{ objectPosition: hero.focus }}
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy/95 via-navy/70 to-navy/10" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t from-navy/85 to-transparent lg:h-1/3" />
+        <div className="wrap grid items-end gap-10 pb-16 pt-16 sm:pt-24 lg:min-h-[640px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:pb-20">
+          <div>
+            <p className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-gold">Denver car rental · delivered</p>
+            <h1 className="font-display text-[42px] font-semibold leading-[1.0] tracking-tight sm:text-[64px]">
+              Mountain-ready Jeeps, delivered anywhere in Denver.
+            </h1>
+            <p className="mt-5 max-w-xl text-[18px] leading-relaxed text-cream/85">
+              Two 4x4 Jeeps on M+S tires, ready for I-70 and the Traction Law. We bring the car to you. Book direct and skip
+              the platform fees.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[12px] uppercase tracking-[0.12em] text-cream/70">
+              <span>4x4 with low range</span>
+              <span>Up to 7 seats</span>
+              <span>Price includes fees and tax</span>
+            </div>
+          </div>
+          <div className="card p-4 text-navy shadow-2xl shadow-black/30 sm:p-6">
+            <p className="mb-4 font-display text-[20px] font-semibold">When do you need it?</p>
             <TripSearchForm />
           </div>
         </div>
-        <RidgelineArt className="min-h-[300px] lg:min-h-full" />
+        <PhotoCredit photo={hero} className="absolute bottom-3 right-3" />
       </section>
 
       <section className="border-y border-line bg-panel/60">
@@ -106,14 +130,48 @@ export default function Home() {
         <h2 className="mb-6 font-display text-[30px] font-semibold">What are you driving to?</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {niches.map((n) => (
-            <Link key={n.href} href={n.href} className="card group flex flex-col p-5 transition hover:border-navy/40">
-              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">{n.tag}</span>
-              <span className="mt-6 font-display text-[22px] font-semibold">{n.title}</span>
-              <span className="mt-1 text-[15px] text-navy-soft">{n.body}</span>
-              <Mountain className="mt-5 text-gold-ink transition group-hover:translate-x-1" size={18} />
+            <Link
+              key={n.href}
+              href={n.href}
+              className="group relative isolate flex aspect-[4/3] flex-col sm:aspect-[4/5] justify-end overflow-hidden rounded-xl bg-navy p-5 text-cream"
+            >
+              <Image
+                src={n.photo.src}
+                alt={n.photo.alt}
+                fill
+                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                className="-z-20 object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-t from-navy via-navy/45 to-navy/5" />
+              <span className="absolute left-4 top-4 rounded-full bg-black/35 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-cream/90 backdrop-blur">
+                {n.tag}
+              </span>
+              <span className="font-display text-[24px] font-semibold">{n.title}</span>
+              <span className="mt-1 text-[15px] text-cream/80">{n.body}</span>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-gold">
+                Plan it <ArrowRight size={16} className="transition group-hover:translate-x-1" />
+              </span>
             </Link>
           ))}
         </div>
+        <p className="mt-3 text-right font-mono text-[10px] uppercase tracking-[0.12em] text-muted">
+          Photos via <Link href="/credits" className="underline underline-offset-2">Unsplash</Link>
+        </p>
+      </section>
+
+      <section className="wrap mt-20 grid items-center gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+        <div>
+          <p className="eyebrow mb-2">Denver to the slopes</p>
+          <h2 className="font-display text-[30px] font-semibold leading-tight">From your door to 11,158 feet</h2>
+          <p className="mt-4 text-[17px] leading-relaxed text-navy-soft">
+            The Traction Law zone on I-70 starts at Morrison, and from September through May every car needs rated tires or
+            chains. Ours leave Denver ready, so the only thing you check at the tunnel is the view.
+          </p>
+          <Link href="/guides/denver-to-breckenridge" className="mt-5 inline-flex items-center gap-1.5 font-semibold underline decoration-gold decoration-2 underline-offset-4">
+            Read the Denver to Breckenridge guide
+          </Link>
+        </div>
+        <RouteMotion />
       </section>
 
       <section className="wrap mt-20">

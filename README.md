@@ -42,3 +42,8 @@ Copy `.env.example` to `.env.local` to set the site URL, a hosted booking engine
 3. **Own engine (about week 9):** Postgres, Stripe deposits and Identity, admin, Turo extension and CSV import.
 
 Everything marked PLACEHOLDER needs a real answer before launch. See `docs/PLACEHOLDERS.md`.
+
+## Photos and motion
+
+- Scenery photos come from Unsplash under the Unsplash License and are listed in `src/data/photos.ts`, with credits on each hero and on `/credits`. None of them show our own cars; swap in real fleet photos as they're shot.
+- The homepage route animation is a [Remotion](https://www.remotion.dev) composition (`src/remotion/RouteToMountains.tsx`) played live with `@remotion/player`. Remotion is free for individuals and companies with up to 3 employees; a larger company needs a [company license](https://www.remotion.pro/license).

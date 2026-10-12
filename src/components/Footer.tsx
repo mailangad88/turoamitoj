@@ -31,6 +31,7 @@ const cols = [
       ["/delivery-areas", "Delivery areas"],
       ["/pricing-and-policies", "Pricing and policies"],
       ["/faq", "FAQ"],
+      ["/credits", "Photo credits"],
     ],
   },
 ];

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SeasonalPage } from "@/components/SeasonalPage";
+import { photos } from "@/data/photos";
 import { TractionFlowchart } from "@/components/diagrams/TractionFlowchart";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function Page() {
   return (
     <SeasonalPage
       path="/ski-rental-denver"
+      photo={photos.breckenridge}
       eyebrow="Ski season · September to May"
       title="Ski car rentals in Denver, ready for I-70"
       lede="AWD and 4x4 cars with racks or roof boxes and rated tires measured at every handoff. Delivered the night before so you can leave at dawn."

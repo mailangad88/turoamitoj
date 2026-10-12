@@ -6,7 +6,7 @@ import { abs } from "@/lib/schema";
 const staticPaths = [
   "/", "/cars", "/ski-rental-denver", "/monthly-car-rental-denver", "/red-rocks", "/rmnp", "/dia-car-delivery",
   "/delivery-areas", "/pricing-and-policies", "/reviews", "/guides", "/tools", "/tools/traction-law-checker",
-  "/tools/ski-trip-estimator", "/tools/turo-vs-direct", "/business", "/about", "/faq",
+  "/tools/ski-trip-estimator", "/tools/turo-vs-direct", "/business", "/about", "/faq", "/credits",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
