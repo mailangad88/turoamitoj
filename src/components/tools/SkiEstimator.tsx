@@ -17,11 +17,8 @@ const resorts = [
 
 // Rough fuel economy for the estimate. EV figure is cost per mile at home-charging prices.
 const mpg: Record<string, number> = {
-  "subaru-outback-wilderness": 24,
-  "toyota-4runner-trd": 17,
-  "toyota-rav4-hybrid": 38,
-  "jeep-grand-cherokee-l": 20,
-  "ford-maverick-hybrid-awd": 25,
+  "jeep-grand-cherokee-l": 21,
+  "jeep-wrangler-unlimited-willys": 19,
 };
 const GAS_PRICE = 3.4; // assumption, $/gallon
 const EV_COST_PER_MILE = 0.07; // assumption

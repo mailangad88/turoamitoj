@@ -22,7 +22,7 @@ export function CarCard({ car, trip }: { car: Car; trip?: (TripSearch & { days: 
         <div className="flex flex-1 flex-col gap-3 p-5">
           <div>
             <h3 className="font-display text-[19px] font-semibold leading-tight text-navy">{car.name}</h3>
-            <p className="mt-0.5 text-[13px] text-muted">{car.year} · {car.tires}</p>
+            <p className="mt-0.5 text-[13px] text-muted">{car.year} · {car.color} · {car.tires}</p>
           </div>
           <ul className="flex flex-wrap gap-1.5 text-[12px] font-medium">
             <li className="rounded bg-navy/5 px-2 py-1">{car.seats} seats</li>

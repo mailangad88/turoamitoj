@@ -36,8 +36,8 @@ export default function Body() {
       </ul>
       <h2>Good cars for a month</h2>
       <p>
-        The <Link href="/cars/toyota-rav4-hybrid">RAV4 Hybrid</Link> is the efficient pick for commuting. The{" "}
-        <Link href="/cars/ford-maverick-hybrid-awd">Ford Maverick</Link> helps on moving days. See all{" "}
+        The <Link href="/cars/jeep-grand-cherokee-l">Grand Cherokee L</Link> fits a family and a month of luggage. The{" "}
+        <Link href="/cars/jeep-wrangler-unlimited-willys">Wrangler Unlimited</Link> is the pick if your month includes dirt roads. See all{" "}
         <Link href="/monthly-car-rental-denver">monthly rental options</Link>.
       </p>
     </>

@@ -12,14 +12,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cars" },
 };
 
-type Filter = "all" | "7-seats" | "4wd" | "ev" | "ski";
+type Filter = "all" | "7-seats" | "ski";
 
 const filters: { id: Filter; label: string }[] = [
   { id: "all", label: "All" },
   { id: "ski", label: "Ski rack" },
-  { id: "4wd", label: "4WD" },
   { id: "7-seats", label: "7 seats" },
-  { id: "ev", label: "Electric" },
 ];
 
 export default async function CarsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
@@ -27,7 +25,7 @@ export default async function CarsPage({ searchParams }: { searchParams: Promise
   const trip = parseTrip(params);
   const f = (typeof params.filter === "string" ? params.filter : "all") as Filter;
   const list = cars.filter((c) =>
-    f === "7-seats" ? c.seats >= 7 : f === "4wd" ? c.drive === "4WD" : f === "ev" ? c.ev : f === "ski" ? c.skiRack : true,
+    f === "7-seats" ? c.seats >= 7 : f === "ski" ? c.skiRack : true,
   );
   const qs = (filter: Filter) => {
     const q = new URLSearchParams();
@@ -72,7 +70,7 @@ export default async function CarsPage({ searchParams }: { searchParams: Promise
           ))}
         </nav>
         {list.length ? (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid max-w-4xl gap-5 sm:grid-cols-2">
             {list.map((c) => (
               <CarCard key={c.slug} car={c} trip={trip} />
             ))}

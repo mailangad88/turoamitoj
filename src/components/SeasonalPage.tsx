@@ -33,7 +33,7 @@ export function SeasonalPage(p: SeasonalProps) {
       </PageHeader>
       <section className="wrap mt-14">
         <h2 className="mb-6 font-display text-[26px] font-semibold">{p.carsHeading}</h2>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid max-w-4xl gap-5 sm:grid-cols-2">
           {list.map((c) => (
             <CarCard key={c.slug} car={c} />
           ))}

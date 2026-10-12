@@ -3,11 +3,11 @@ import { coloradoFees, deposit } from "@/config/site";
 export const faq: { q: string; a: string }[] = [
   {
     q: "How old do I need to be to rent?",
-    a: "25 or older with a valid driver's license held for at least two years. Drivers aged 21 to 24 can rent our crossovers with a young-driver fee.",
+    a: "25 or older with a valid driver's license held for at least two years. Drivers aged 21 to 24 can rent with a young-driver fee.",
   },
   {
     q: "How much is the security deposit?",
-    a: `$${deposit.standard} for most cars and $${deposit.premium} for larger 4x4s. It's a hold on your card placed 24 hours before pickup and released after we check the car back in.`,
+    a: `$${deposit.premium} for our 4x4s. It's a hold on your card placed 24 hours before pickup and released after we check the car back in.`,
   },
   {
     q: "Are your cars legal under Colorado's Traction Law?",
@@ -27,7 +27,7 @@ export const faq: { q: string; a: string }[] = [
   },
   {
     q: "How many miles are included?",
-    a: "200 miles a day on most cars (250 on the Tesla), pooled across your trip. Extra miles are $0.40 each.",
+    a: "200 miles a day, pooled across your trip. Extra miles are $0.40 each.",
   },
   {
     q: "What happens if I cancel?",

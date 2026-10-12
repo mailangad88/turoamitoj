@@ -94,7 +94,7 @@ export default function Home() {
             All {cars.length} cars
           </Link>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid max-w-4xl gap-5 sm:grid-cols-2">
           {cars.slice(0, 3).map((c) => (
             <CarCard key={c.slug} car={c} />
           ))}

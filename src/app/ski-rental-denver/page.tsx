@@ -30,7 +30,7 @@ export default function Page() {
                 and we check it at handoff.
               </p>
               <ul>
-                <li>Roof rack on every ski car; roof box free on trips of 5 days or more.</li>
+                <li>Roof rails on the Grand Cherokee L; roof box free on trips of 5 days or more.</li>
                 <li>Snow socks available as an add-on for storm days.</li>
                 <li>Delivered the evening before to your hotel or home, so you can beat the Saturday traffic.</li>
               </ul>
@@ -68,8 +68,8 @@ export default function Page() {
         </div>
       }
       faqs={[
-        { q: "Do your cars have snow tires?", a: "Every car runs winter, all-weather or M+S tires with at least 3/16 inch of tread, which meets the Traction Law. The Grand Cherokee runs dedicated winter tires from October to April." },
-        { q: "Can I put skis inside the car?", a: "Two pairs fit inside most of our SUVs with a seat folded. For three or more skiers, use the roof rack or add a roof box." },
+        { q: "Do your cars have snow tires?", a: "Every car runs winter, all-weather or M+S tires with at least 3/16 inch of tread, which meets the Traction Law." },
+        { q: "Can I put skis inside the car?", a: "Two pairs fit inside the Grand Cherokee L with a seat folded. For three or more skiers, use the roof rack or add a roof box." },
         { q: "What if I-70 closes on my pickup day?", a: "We change your dates for free when CDOT closes I-70 or the tunnel." },
       ]}
     />

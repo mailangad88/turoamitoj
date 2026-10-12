@@ -38,6 +38,7 @@ export default async function CarPage({
 
   const specs: [string, string][] = [
     ["Year", String(car.year)],
+    ["Color", car.color],
     ["Drive", car.drive],
     ["Seats", String(car.seats)],
     ["Tires", car.tires],
@@ -106,7 +107,7 @@ export default async function CarPage({
       </section>
       <section className="wrap mt-20">
         <h2 className="mb-6 font-display text-[26px] font-semibold">Other cars</h2>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid max-w-4xl gap-5 sm:grid-cols-2">
           {cars.filter((c) => c.slug !== car.slug).slice(0, 3).map((c) => <CarCard key={c.slug} car={c} />)}
         </div>
       </section>

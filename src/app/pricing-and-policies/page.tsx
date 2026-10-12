@@ -23,16 +23,16 @@ export default function Page() {
             Rentals of 30 days or less include Colorado and Denver sales tax, plus Colorado&apos;s daily vehicle rental fee (${coloradoFees.dailyRentalFee.toFixed(2)}) and congestion impact fee (${coloradoFees.congestionImpactFee.toFixed(2)}), ${perDay} a day in total for {coloradoFees.effective}. Rentals over 30 consecutive days are exempt.
           </p>
           <h2>Deposit</h2>
-          <p>${deposit.standard} for most cars, ${deposit.premium} for larger 4x4s. It&apos;s a hold on your card placed 24 hours before pickup and released after check-in, usually within 3 business days.</p>
+          <p>${deposit.premium} for our 4x4s. It&apos;s a hold on your card placed 24 hours before pickup and released after check-in, usually within 3 business days.</p>
           <h2>Drivers</h2>
           <ul>
-            <li>Primary driver 25 or older with a license held for 2+ years. Ages 21 to 24 can rent crossovers with a $25/day young-driver fee.</li>
+            <li>Primary driver 25 or older with a license held for 2+ years. Ages 21 to 24 can rent with a $25/day young-driver fee.</li>
             <li>License and selfie check before pickup. Extra drivers must be verified too.</li>
           </ul>
           <h2>Mileage and fuel</h2>
           <ul>
-            <li>200 miles a day (250 on the Tesla), pooled across the trip. Extra miles $0.40 each.</li>
-            <li>Return with the same fuel level, or we refuel at the pump price plus $10. Teslas: return above 20%.</li>
+            <li>200 miles a day, pooled across the trip. Extra miles $0.40 each.</li>
+            <li>Return with the same fuel level, or we refuel at the pump price plus $10.</li>
           </ul>
           <h2>Tolls and tickets</h2>
           <p>E-470 and the Express Lanes bill by plate. Tolls pass through at cost, with no admin fee. Parking and camera tickets pass through with a $25 processing fee.</p>
