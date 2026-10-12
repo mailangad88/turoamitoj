@@ -19,7 +19,7 @@ async function connect(): Promise<Db | null> {
   if (url) {
     const { default: postgres } = await import("postgres");
     // prepare:false keeps it compatible with transaction poolers such as Neon's and Supabase's.
-    const sql = postgres(url, { max: 3, prepare: false, idle_timeout: 20 });
+    const sql = postgres(url, { max: 3, prepare: false, idle_timeout: 20, onnotice: () => {} });
     return {
       kind: "postgres",
       query: async <T,>(text: string, params: unknown[] = []) =>
