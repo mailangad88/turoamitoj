@@ -38,7 +38,7 @@ export function BookingForm(props: Props) {
     return (
       <div className="rounded-lg border border-pine/30 bg-pine-tint p-6">
         <h2 className="font-display text-[22px] font-semibold text-pine">Request received</h2>
-        <p className="mt-2 text-[16px] text-navy-soft">
+        <p className="mt-2 text-[16px] text-ink-soft">
           We&apos;ll confirm availability by text or email, usually within an hour during the day. You&apos;ll get a secure link
           to verify your license and pay once the car is confirmed.
         </p>
@@ -71,8 +71,8 @@ export function BookingForm(props: Props) {
       <fieldset>
         <legend className="label">Primary driver&apos;s age</legend>
         <div className="flex gap-5 text-[15px]">
-          <label className="flex items-center gap-2"><input type="radio" id="age-25" name="driverAge" value="25+" defaultChecked className="accent-[#14223a]" /> 25 or older</label>
-          <label className="flex items-center gap-2"><input type="radio" id="age-21" name="driverAge" value="21-24" className="accent-[#14223a]" /> 21 to 24</label>
+          <label className="flex items-center gap-2"><input type="radio" id="age-25" name="driverAge" value="25+" defaultChecked className="accent-[#111111]" /> 25 or older</label>
+          <label className="flex items-center gap-2"><input type="radio" id="age-21" name="driverAge" value="21-24" className="accent-[#111111]" /> 21 to 24</label>
         </div>
       </fieldset>
       <div>
@@ -84,7 +84,7 @@ export function BookingForm(props: Props) {
         <input id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
       {state === "error" && <p className="rounded-md bg-rust-tint px-3 py-2 text-[14px] text-rust">{error}</p>}
-      <button type="submit" className="btn-gold py-3.5 text-[16px]" disabled={state === "sending"}>
+      <button type="submit" className="btn-brand py-3.5 text-[16px]" disabled={state === "sending"}>
         {state === "sending" ? "Sending…" : "Send booking request"}
       </button>
       <p className="text-[13px] text-muted">No payment now. We confirm the car first, then send a secure link for license check, agreement and payment.</p>

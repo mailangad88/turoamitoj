@@ -13,7 +13,7 @@ export function MobileNav({ items }: { items: { href: string; label: string }[] 
         aria-expanded={open}
         aria-controls="mobile-nav"
         onClick={() => setOpen((o) => !o)}
-        className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-line text-navy"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-line text-ink"
       >
         {open ? <X size={20} /> : <Menu size={20} />}
         <span className="sr-only">Menu</span>
@@ -23,13 +23,13 @@ export function MobileNav({ items }: { items: { href: string; label: string }[] 
           <ul className="flex flex-col">
             {items.map((i) => (
               <li key={i.href}>
-                <Link href={i.href} onClick={() => setOpen(false)} className="block border-b border-line py-3 text-[17px] font-medium text-navy">
+                <Link href={i.href} onClick={() => setOpen(false)} className="block border-b border-line py-3 text-[17px] font-medium text-ink">
                   {i.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <Link href="/cars" onClick={() => setOpen(false)} className="btn-gold mt-4 w-full">
+          <Link href="/cars" onClick={() => setOpen(false)} className="btn-brand mt-4 w-full">
             Book a car
           </Link>
         </nav>

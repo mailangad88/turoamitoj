@@ -33,7 +33,7 @@ export default function Page() {
         </div>
         <div className="card h-fit p-6">
           <h2 className="font-display text-[20px] font-semibold">Why not at the terminal?</h2>
-          <p className="mt-2 text-[15px] leading-relaxed text-navy-soft">
+          <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
             Rental companies that serve Denver International Airport pay the city a share of their airport revenue under a permit.
             We&apos;ll add terminal handoffs once that&apos;s in place, and this page will say so.
           </p>

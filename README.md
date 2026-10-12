@@ -7,7 +7,7 @@ Plan: https://claude.ai/artifact/RxfHE5iUWSjR5SZEZDDPXx
 ## Stack
 
 - Next.js 15 (App Router) on Vercel, TypeScript, Tailwind CSS
-- Icons: Lucide (ISC). Fonts: Outfit, Instrument Sans, Geist Mono (Google Fonts, OFL)
+- Icons: Lucide (ISC). Fonts: Saira, Instrument Sans, Geist Mono (Google Fonts, OFL)
 - Diagrams: [diagram-design](https://github.com/cathrynlavery/diagram-design) (MIT), vendored as a project skill in `.claude/skills/diagram-design`
 
 ## Run it

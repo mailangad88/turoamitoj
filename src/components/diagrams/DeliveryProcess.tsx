@@ -47,8 +47,8 @@ export function DeliveryProcess() {
       </div>
       <ol className="grid gap-2 md:hidden">
         {steps.map((s, i) => (
-          <li key={s.title} className={`flex items-center gap-3 rounded-md border px-4 py-3 ${s.focal ? "border-gold-ink bg-gold-tint" : "border-line bg-panel"}`}>
-            <span className={`font-mono text-[11px] tracking-[0.14em] ${s.focal ? "text-gold-ink" : "text-muted"}`}>0{i + 1}</span>
+          <li key={s.title} className={`flex items-center gap-3 rounded-md border px-4 py-3 ${s.focal ? "border-brand-ink bg-brand-tint" : "border-line bg-panel"}`}>
+            <span className={`font-mono text-[11px] tracking-[0.14em] ${s.focal ? "text-brand-ink" : "text-muted"}`}>0{i + 1}</span>
             <span className="font-semibold">{s.title}</span>
             <span className="ml-auto font-mono text-[11px] text-muted">{s.sub}</span>
           </li>

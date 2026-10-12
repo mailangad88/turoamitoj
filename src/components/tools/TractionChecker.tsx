@@ -42,13 +42,13 @@ export function TractionChecker() {
           </select>
         </div>
         <label className="flex items-center gap-2.5 text-[15px]">
-          <input id="tl-chains" type="checkbox" checked={chains} onChange={(e) => setChains(e.target.checked)} className="h-4 w-4 accent-[#14223a]" />
+          <input id="tl-chains" type="checkbox" checked={chains} onChange={(e) => setChains(e.target.checked)} className="h-4 w-4 accent-[#111111]" />
           Carrying chains or snow socks
         </label>
       </div>
       <div role="status" aria-live="polite" className={`rounded-lg p-5 ${r.compliant ? "bg-pine-tint" : "bg-rust-tint"}`}>
         <p className={`font-display text-[24px] font-semibold ${r.compliant ? "text-pine" : "text-rust"}`}>{r.compliant ? "Compliant" : "Not compliant"}</p>
-        <p className="mt-2 text-[15px] leading-relaxed text-navy-soft">{r.reason}</p>
+        <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">{r.reason}</p>
         <p className="mt-4 text-[13px] text-muted">
           {inSeason ? "The Traction Law season is on now (Sept 1 to May 31). Check COtrip.org for active alerts." : "Outside the Sept 1 to May 31 season, but CDOT can activate it any time it snows."}
         </p>

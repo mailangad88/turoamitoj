@@ -25,7 +25,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     <>
       <article className="wrap py-12">
         <nav aria-label="Breadcrumb" className="mb-6 text-[13px] text-muted">
-          <Link href="/guides" className="hover:text-navy">Guides</Link> / {meta.cluster}
+          <Link href="/guides" className="hover:text-ink">Guides</Link> / {meta.cluster}
         </nav>
         <p className="eyebrow mb-3">{meta.cluster} · {meta.readMinutes} min read · Updated {new Date(meta.updated).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</p>
         <h1 className="max-w-3xl font-display text-[34px] font-semibold leading-[1.1] tracking-tight sm:text-[46px]">{meta.title}</h1>

@@ -63,7 +63,7 @@ export default async function CarsPage({ searchParams }: { searchParams: Promise
               href={`/cars${qs(x.id)}`}
               aria-current={f === x.id ? "page" : undefined}
               className={`rounded-full border px-4 py-1.5 text-[14px] font-medium ${
-                f === x.id ? "border-navy bg-navy text-cream" : "border-line bg-panel text-navy hover:border-navy/40"
+                f === x.id ? "border-ink bg-ink text-cream" : "border-line bg-panel text-ink hover:border-ink/40"
               }`}
             >
               {x.label}
@@ -77,7 +77,7 @@ export default async function CarsPage({ searchParams }: { searchParams: Promise
             ))}
           </div>
         ) : (
-          <p className="text-navy-soft">No cars match that filter yet.</p>
+          <p className="text-ink-soft">No cars match that filter yet.</p>
         )}
       </section>
     </>

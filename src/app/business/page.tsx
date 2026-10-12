@@ -23,12 +23,12 @@ export default function Page() {
       <section className="wrap mt-10 grid gap-10 lg:grid-cols-2">
         <ul className="grid gap-4">
           {offers.map(([t, b]) => (
-            <li key={t} className="card p-5"><h2 className="font-display text-[18px] font-semibold">{t}</h2><p className="mt-1 text-[15px] text-navy-soft">{b}</p></li>
+            <li key={t} className="card p-5"><h2 className="font-display text-[18px] font-semibold">{t}</h2><p className="mt-1 text-[15px] text-ink-soft">{b}</p></li>
           ))}
         </ul>
         <div className="card h-fit p-6">
           <h2 className="font-display text-[20px] font-semibold">Ask for a quote</h2>
-          <p className="mt-2 text-[15px] text-navy-soft">Email us with dates, number of vehicles and where you need them.</p>
+          <p className="mt-2 text-[15px] text-ink-soft">Email us with dates, number of vehicles and where you need them.</p>
           <p className="mt-4 select-all font-mono text-[15px]">{site.email}</p>
           <p className="select-all font-mono text-[15px]">{site.phone}</p>
         </div>

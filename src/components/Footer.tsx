@@ -38,10 +38,10 @@ const cols = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-navy text-cream/80">
+    <footer className="mt-24 bg-ink text-cream/80">
       <div className="wrap grid gap-10 py-14 md:grid-cols-[1.4fr_repeat(3,1fr)]">
         <div className="space-y-3">
-          <Logo className="text-cream" />
+          <Logo onDark className="text-cream" />
           <p className="max-w-xs text-[14px] leading-relaxed">{site.tagline}</p>
           <p className="font-mono text-[13px]">
             {site.phone}

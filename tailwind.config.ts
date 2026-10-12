@@ -1,17 +1,17 @@
 import type { Config } from "tailwindcss";
 
-// Brand tokens from the plan: cream ground, deep navy type, one gold accent for the primary action.
+// Brand tokens from the Rent and Drive logo: black type, warm off-white ground, one orange accent for the primary action.
 const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        cream: "#f6f1e7",
-        panel: "#fffcf6",
-        navy: { DEFAULT: "#14223a", 2: "#22324d", soft: "#3b4558" },
-        muted: "#5d6472",
-        line: "#e2d9c7",
-        gold: { DEFAULT: "#d6a032", ink: "#8a5f08", tint: "#f6e8c8" },
+        cream: "#f7f6f3",
+        panel: "#ffffff",
+        ink: { DEFAULT: "#111111", 2: "#1f1f22", soft: "#44444a" },
+        muted: "#5f5f66",
+        line: "#e6e2dc",
+        brand: { DEFAULT: "#ff7a00", ink: "#c2410c", tint: "#ffedd5" },
         pine: { DEFAULT: "#2c5a4c", tint: "#e3eee9" },
         rust: { DEFAULT: "#9b3b22", tint: "#f6e3db" },
       },

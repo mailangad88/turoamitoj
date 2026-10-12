@@ -51,7 +51,7 @@ export function TripSearchForm({ compact = false, initial }: { compact?: boolean
           ))}
         </select>
       </div>
-      <button type="submit" className={`btn-gold ${compact ? "" : "sm:col-span-2"} py-3.5 text-[16px]`} disabled={!days}>
+      <button type="submit" className={`btn-brand ${compact ? "" : "sm:col-span-2"} py-3.5 text-[16px]`} disabled={!days}>
         {days ? `Show cars for ${days} day${days === 1 ? "" : "s"}` : "Return must be after pickup"}
       </button>
     </form>

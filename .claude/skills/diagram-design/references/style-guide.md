@@ -1,6 +1,6 @@
 # Style Guide
 
-> **Project skin (custom):** customized for this site's brand (cream ground, deep navy ink, gold accent). Light tokens below are the brand values; the gold accent is darkened to `#8a5f08` so it clears 4.5:1 on cream. Typography in the site uses Outfit, Instrument Sans and Geist Mono.
+> **Project skin (custom):** customized for the Rent and Drive brand (off-white ground, black ink, orange accent from the logo). Light tokens below are the brand values; the orange accent is darkened to `#c2410c` so it clears 4.5:1 on the off-white paper. Typography in the site uses Saira, Instrument Sans and Geist Mono.
 
 **The single source of truth for colors, typography, and tokens.** Every diagram draws from this — not from hex values inlined in other reference files. If you want to change the visual skin of Diagram Design, change this file.
 
@@ -18,16 +18,16 @@ Every token is referred to by **semantic role**, not by its hex value. Type refe
 
 | Role | Purpose | Default (light) | Default (dark) |
 |---|---|---|---|
-| `paper` | Page background, default node fill | `#f6f1e7` (cream) | `#2d3142` (jet-black) |
+| `paper` | Page background, default node fill | `#f7f6f3` (cream) | `#2d3142` (jet-black) |
 | `paper-2` | Diagram container bg, secondary fill | `#ede5d4` | `#393e53` |
-| `ink` | Primary text, primary stroke | `#14223a` (deep navy) | `#f5f5f5` (white-smoke) |
+| `ink` | Primary text, primary stroke | `#111111` (black) | `#f5f5f5` (white-smoke) |
 | `ink-strong` | High-contrast text on warm accent fills | `#111111` | `#111111` |
 | `muted` | Secondary text, default arrow stroke | `#4f5d75` (blue-slate) | `#bfc0c0` (silver) |
 | `soft` | Sublabels, boundary labels | `#5a6580` | `#949eb2` |
 | `rule` | Hairline borders | `rgba(45,49,66,0.12)` | `rgba(245,245,245,0.12)` |
 | `rule-solid` | Stronger borders, baselines | `#bfc0c0` (silver) | `rgba(191,192,192,0.25)` |
-| `accent` | Focal / 1–2 max per diagram | `#8a5f08` (gold ink) | `#f08a59` |
-| `accent-tint` | Fill for accent-bordered boxes | `rgba(214,160,50,0.16)` | `rgba(240,138,89,0.10)` |
+| `accent` | Focal / 1–2 max per diagram | `#c2410c` (orange ink) | `#f08a59` |
+| `accent-tint` | Fill for accent-bordered boxes | `rgba(255,122,0,0.14)` | `rgba(240,138,89,0.10)` |
 | `link` | HTTP/API calls, external arrows | `#2e5aa8` | `#739fdf` |
 
 > **Brand palette source:** this skin maps to a five-color brand palette: `jet-black #2d3142`, `silver #bfc0c0`, `white-smoke #f5f5f5`, `atomic-tangerine`, `blue-slate #4f5d75`. The light `accent` is not the raw brand tangerine. Raw atomic-tangerine reads 2.86:1 on `paper`, too faint for an arrow or a label, so the skin uses `#bf4520`, the same hue darkened until it clears 4.5:1 as text. The `soft`, `rule`, and `link` tokens are derived (a darker slate, ink at opacity, and a saturated variant in the blue-slate hue family) to cover roles the brand palette doesn't name directly. Every derived value is held to the contrast contract below.

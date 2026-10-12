@@ -60,8 +60,8 @@ export function SkiEstimator() {
         <fieldset>
           <legend className="label">Where are you staying?</legend>
           <div className="flex flex-col gap-2 text-[15px]">
-            <label className="flex items-center gap-2"><input type="radio" id="se-base-m" name="base" checked={base === "mountain"} onChange={() => setBase("mountain")} className="accent-[#14223a]" /> In the mountains (one round trip)</label>
-            <label className="flex items-center gap-2"><input type="radio" id="se-base-d" name="base" checked={base === "denver"} onChange={() => setBase("denver")} className="accent-[#14223a]" /> In Denver (day trips each day)</label>
+            <label className="flex items-center gap-2"><input type="radio" id="se-base-m" name="base" checked={base === "mountain"} onChange={() => setBase("mountain")} className="accent-[#111111]" /> In the mountains (one round trip)</label>
+            <label className="flex items-center gap-2"><input type="radio" id="se-base-d" name="base" checked={base === "denver"} onChange={() => setBase("denver")} className="accent-[#111111]" /> In Denver (day trips each day)</label>
           </div>
         </fieldset>
       </div>
@@ -76,7 +76,7 @@ export function SkiEstimator() {
               <div className="flex justify-between"><dt>{car.ev ? "Charging" : "Fuel"} for ~{miles} miles</dt><dd className="tabular-nums">{usd(Math.round(fuel))}</dd></div>
               <div className="flex justify-between border-t border-line pt-2 font-semibold"><dt>Per skier</dt><dd className="tabular-nums">{usd(Math.round((q.total + fuel) / people))}</dd></div>
             </dl>
-            <Link href={`/cars/${car.slug}`} className="btn-gold mt-5 w-full">See this car</Link>
+            <Link href={`/cars/${car.slug}`} className="btn-brand mt-5 w-full">See this car</Link>
             <p className="mt-3 text-[12px] text-muted">Estimate with Denver-core delivery, gas at ${GAS_PRICE.toFixed(2)}/gal. Excludes lift tickets and parking.</p>
           </>
         ) : (

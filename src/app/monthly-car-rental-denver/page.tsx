@@ -48,7 +48,7 @@ export default function Page() {
       aside={
         <div className="card p-5">
           <h2 className="font-display text-[18px] font-semibold">Need a quote for 2+ months?</h2>
-          <p className="mt-2 text-[14px] text-navy-soft">Corporate, insurance and long-stay rates on request.</p>
+          <p className="mt-2 text-[14px] text-ink-soft">Corporate, insurance and long-stay rates on request.</p>
           <Link href="/business" className="btn-ghost mt-4 w-full">Ask for a quote</Link>
         </div>
       }

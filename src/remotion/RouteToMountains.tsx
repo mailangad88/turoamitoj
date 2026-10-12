@@ -48,7 +48,7 @@ function pointAt(t: number): [number, number] {
 
 const roadPath = road.map(([x, y], i) => `${i ? "L" : "M"}${x} ${y}`).join(" ");
 
-const C = { navy: "#14223a", navy2: "#22324d", ridge1: "#3b4f70", ridge2: "#2c3f5e", ridge3: "#1d2d48", cream: "#f6f1e7", gold: "#d6a032" };
+const C = { ink: "#111111", ink2: "#1f1f22", ridge1: "#3a3a42", ridge2: "#2b2b31", ridge3: "#1c1c20", cream: "#f7f6f3", brand: "#ff7a00" };
 
 export function RouteToMountains() {
   const frame = useCurrentFrame();
@@ -71,16 +71,16 @@ export function RouteToMountains() {
   const drift = Math.sin(frame / fps / 2) * 6;
 
   return (
-    <AbsoluteFill style={{ background: C.navy, opacity: fadeIn * fadeOut, fontFamily: "var(--font-body), system-ui, sans-serif" }}>
+    <AbsoluteFill style={{ background: C.ink, opacity: fadeIn * fadeOut, fontFamily: "var(--font-body), system-ui, sans-serif" }}>
       <svg viewBox={`0 0 ${ROUTE_W} ${ROUTE_H}`} width="100%" height="100%">
         <defs>
           <linearGradient id="rtm-sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor={C.navy} />
-            <stop offset="1" stopColor="#2a3d5c" />
+            <stop offset="0" stopColor={C.ink} />
+            <stop offset="1" stopColor="#2a2a30" />
           </linearGradient>
         </defs>
         <rect width={ROUTE_W} height={ROUTE_H} fill="url(#rtm-sky)" />
-        <circle cx={980} cy={110 + drift} r={46} fill={C.gold} opacity={0.85} />
+        <circle cx={980} cy={110 + drift} r={46} fill={C.brand} opacity={0.85} />
 
         {/* Snow: deterministic so every loop matches */}
         {Array.from({ length: 50 }).map((_, i) => {
@@ -95,12 +95,12 @@ export function RouteToMountains() {
         <path d="M0 380 L160 300 L300 345 L430 290 L560 340 L700 300 L820 380 L1200 400 L1200 520 L0 520 Z" fill={C.ridge2} />
         <path d="M0 450 L200 410 L420 440 L640 405 L900 440 L1200 430 L1200 520 L0 520 Z" fill={C.ridge3} />
 
-        {/* Road: faint full route, then the driven part in gold */}
+        {/* Road: faint full route, then the driven part in orange */}
         <path d={roadPath} fill="none" stroke={C.cream} strokeOpacity={0.18} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" strokeDasharray="2 10" />
         <path
           d={roadPath}
           fill="none"
-          stroke={C.gold}
+          stroke={C.brand}
           strokeWidth={4}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -118,7 +118,7 @@ export function RouteToMountains() {
           const lx = i === 0 ? s.x + 10 : i === stops.length - 1 ? s.x - 20 : s.x;
           return (
             <g key={s.name}>
-              <circle cx={s.x} cy={s.y} r={reached ? 9 : 6} fill={reached ? C.gold : C.navy2} stroke={C.cream} strokeOpacity={0.7} strokeWidth={2} />
+              <circle cx={s.x} cy={s.y} r={reached ? 9 : 6} fill={reached ? C.brand : C.ink2} stroke={C.cream} strokeOpacity={0.7} strokeWidth={2} />
               <g opacity={i === 0 ? 1 : pop} transform={`translate(0 ${(1 - (i === 0 ? 1 : pop)) * 8})`}>
                 <text x={lx} y={ly} textAnchor={anchor} fill={C.cream} fontSize={28} fontWeight={600}>
                   {s.name}
@@ -132,7 +132,7 @@ export function RouteToMountains() {
         })}
 
         {/* The car */}
-        <circle cx={cx} cy={cy} r={16} fill={C.gold} opacity={0.25} />
+        <circle cx={cx} cy={cy} r={16} fill={C.brand} opacity={0.25} />
         <circle cx={cx} cy={cy} r={7} fill={C.cream} />
       </svg>
 

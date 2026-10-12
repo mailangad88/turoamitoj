@@ -16,8 +16,8 @@ export default function CreditsPage() {
         <ul className="grid max-w-3xl gap-3">
           {Object.values(photos).map((p) => (
             <li key={p.src} className="card flex flex-col gap-1 p-4 sm:flex-row sm:items-center sm:justify-between">
-              <span className="text-[15px] text-navy-soft">{p.alt}</span>
-              <a href={`${p.page}?utm_source=direct_site&utm_medium=referral`} target="_blank" rel="noopener noreferrer" className="shrink-0 font-semibold underline decoration-gold decoration-2 underline-offset-4">
+              <span className="text-[15px] text-ink-soft">{p.alt}</span>
+              <a href={`${p.page}?utm_source=direct_site&utm_medium=referral`} target="_blank" rel="noopener noreferrer" className="shrink-0 font-semibold underline decoration-brand decoration-2 underline-offset-4">
                 {p.credit}
               </a>
             </li>

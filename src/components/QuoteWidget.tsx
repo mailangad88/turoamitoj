@@ -74,7 +74,7 @@ export function QuoteWidget({ car, initial, bookingEngineUrl }: Props) {
               .filter((a) => a.id !== "ski-box" || car.skiRack)
               .map((a) => (
                 <label key={a.id} className="flex cursor-pointer items-center gap-2.5 text-[14px]">
-                  <input type="checkbox" id={`addon-${a.id}`} checked={selected.includes(a.id)} onChange={() => toggle(a.id)} className="h-4 w-4 accent-[#14223a]" />
+                  <input type="checkbox" id={`addon-${a.id}`} checked={selected.includes(a.id)} onChange={() => toggle(a.id)} className="h-4 w-4 accent-[#111111]" />
                   <span className="flex-1">{a.label}</span>
                   <span className="tabular-nums text-muted">${a.perDay}/day</span>
                 </label>
@@ -87,16 +87,16 @@ export function QuoteWidget({ car, initial, bookingEngineUrl }: Props) {
         <dl className="mt-5 space-y-1.5 border-t border-line pt-4 text-[14px]">
           {q.lines.map((l) => (
             <div key={l.label} className="flex justify-between gap-3">
-              <dt className="text-navy-soft">{l.label}</dt>
+              <dt className="text-ink-soft">{l.label}</dt>
               <dd className="tabular-nums">{usd(l.amount)}</dd>
             </div>
           ))}
           <div className="flex justify-between gap-3">
-            <dt className="text-navy-soft">Sales tax (estimate)</dt>
+            <dt className="text-ink-soft">Sales tax (estimate)</dt>
             <dd className="tabular-nums">{usd(q.tax)}</dd>
           </div>
           <div className="flex justify-between gap-3">
-            <dt className="text-navy-soft">
+            <dt className="text-ink-soft">
               Colorado rental fees
               {q.coloradoFees === 0 && <span className="block text-[12px] text-pine">Exempt: rental over 30 days</span>}
             </dt>
@@ -115,9 +115,9 @@ export function QuoteWidget({ car, initial, bookingEngineUrl }: Props) {
       )}
 
       {bookingEngineUrl ? (
-        <a href={bookingEngineUrl} className="btn-gold mt-5 w-full">Book this car</a>
+        <a href={bookingEngineUrl} className="btn-brand mt-5 w-full">Book this car</a>
       ) : (
-        <Link href={q ? `/book?${params.toString()}` : "#"} aria-disabled={!q} className={`btn-gold mt-5 w-full ${q ? "" : "pointer-events-none opacity-60"}`}>
+        <Link href={q ? `/book?${params.toString()}` : "#"} aria-disabled={!q} className={`btn-brand mt-5 w-full ${q ? "" : "pointer-events-none opacity-60"}`}>
           Request this car
         </Link>
       )}

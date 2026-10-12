@@ -7,8 +7,8 @@
 }
 
 html {
-  background: #f6f1e7;
-  color: #14223a;
+  background: #f7f6f3;
+  color: #111111;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -21,7 +21,7 @@ h1, h2, h3 {
 }
 
 :focus-visible {
-  outline: 2px solid #d6a032;
+  outline: 2px solid #ff7a00;
   outline-offset: 2px;
 }
 
@@ -32,29 +32,29 @@ h1, h2, h3 {
   .eyebrow {
     @apply font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-muted;
   }
-  .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 rounded-md bg-gold px-5 py-3 font-semibold text-navy transition hover:bg-[#c8922a] disabled:opacity-60;
+  .btn-brand {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-gradient-to-b from-[#ffa31a] to-[#fd6c02] px-5 py-3 font-semibold text-ink shadow-sm shadow-brand/30 transition hover:from-[#ff9500] hover:to-[#f25f00] disabled:opacity-60;
   }
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-md border border-navy/20 px-5 py-3 font-semibold text-navy transition hover:border-navy/50;
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-ink/20 px-5 py-3 font-semibold text-ink transition hover:border-ink/50;
   }
   .card {
     @apply rounded-lg border border-line bg-panel;
   }
   .field {
-    @apply w-full rounded-md border border-line bg-white px-3 py-2.5 text-[15px] text-navy placeholder:text-muted/70 focus:border-navy focus:outline-none;
+    @apply w-full rounded-md border border-line bg-white px-3 py-2.5 text-[15px] text-ink placeholder:text-muted/70 focus:border-ink focus:outline-none;
   }
   .label {
-    @apply mb-1.5 block text-[13px] font-medium text-navy-soft;
+    @apply mb-1.5 block text-[13px] font-medium text-ink-soft;
   }
   .prose-site {
-    @apply max-w-prose text-[17px] leading-[1.7] text-navy-soft;
+    @apply max-w-prose text-[17px] leading-[1.7] text-ink-soft;
   }
   .prose-site h2 {
-    @apply mb-3 mt-10 font-display text-2xl font-semibold text-navy;
+    @apply mb-3 mt-10 font-display text-2xl font-semibold text-ink;
   }
   .prose-site h3 {
-    @apply mb-2 mt-7 font-display text-lg font-semibold text-navy;
+    @apply mb-2 mt-7 font-display text-lg font-semibold text-ink;
   }
   .prose-site p {
     @apply mb-4;
@@ -66,10 +66,10 @@ h1, h2, h3 {
     @apply mb-4 list-decimal space-y-1.5 pl-5;
   }
   .prose-site a {
-    @apply text-navy underline decoration-gold decoration-2 underline-offset-4;
+    @apply text-ink underline decoration-brand decoration-2 underline-offset-4;
   }
   .prose-site strong {
-    @apply text-navy;
+    @apply text-ink;
   }
 }
 

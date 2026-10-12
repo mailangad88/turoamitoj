@@ -1,13 +1,15 @@
-import { site } from "@/config/site";
+import Image from "next/image";
 
-export function Logo({ className = "" }: { className?: string }) {
+// The RND emblem from the logo file, with the wordmark set in type so it stays sharp at header size.
+export function Logo({ className = "", onDark = false }: { className?: string; onDark?: boolean }) {
   return (
-    <span className={`inline-flex items-center gap-2 ${className}`}>
-      <svg width="30" height="20" viewBox="0 0 30 20" aria-hidden="true">
-        <path d="M1 18 L9 7 L13 12 L19 3 L29 18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round" />
-        <path d="M17 6 L19 3 L21 6" fill="none" stroke="#d6a032" strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round" />
-      </svg>
-      <span className="font-display text-[19px] font-semibold tracking-tight">{site.name}</span>
+    <span className={`inline-flex items-center gap-2.5 ${className}`}>
+      <span className={onDark ? "rounded-md bg-white px-1.5 py-1" : ""}>
+        <Image src="/brand/rnd-emblem-120.png" alt="" width={235} height={120} className="h-9 w-auto" priority />
+      </span>
+      <span className="font-display text-[17px] font-extrabold uppercase italic leading-none tracking-tight sm:text-[19px]">
+        Rent and <span className="text-brand">Drive</span>
+      </span>
     </span>
   );
 }

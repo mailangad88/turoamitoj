@@ -14,11 +14,11 @@ export function CarSilhouette({ body, className = "" }: { body: BodyStyle; class
     <svg viewBox="0 0 200 90" className={className} aria-hidden="true">
       <line x1="0" y1="82" x2="200" y2="82" stroke="currentColor" strokeOpacity="0.18" strokeWidth="1" />
       <path d={paths[body]} fill="currentColor" />
-      {body !== "truck" && <path d="M40 41 L112 41 L122 52 L32 52 Z" fill="#f6f1e7" opacity="0.18" />}
+      {body !== "truck" && <path d="M40 41 L112 41 L122 52 L32 52 Z" fill="#f7f6f3" opacity="0.18" />}
       <circle cx="52" cy="74" r="11" fill="currentColor" />
-      <circle cx="52" cy="74" r="5" fill="#f6f1e7" opacity="0.5" />
+      <circle cx="52" cy="74" r="5" fill="#f7f6f3" opacity="0.5" />
       <circle cx="152" cy="74" r="11" fill="currentColor" />
-      <circle cx="152" cy="74" r="5" fill="#f6f1e7" opacity="0.5" />
+      <circle cx="152" cy="74" r="5" fill="#f7f6f3" opacity="0.5" />
     </svg>
   );
 }

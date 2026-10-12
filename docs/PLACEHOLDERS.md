@@ -2,7 +2,6 @@
 
 | Item | Current placeholder | File |
 |---|---|---|
-| Brand name | Ridgeline Rentals | `src/config/site.ts` |
 | Phone, email | (720) 555-0142, hello@example.com | `src/config/site.ts` |
 | Home base for free pickup | Central Park, Denver | `src/config/site.ts`, `src/data/zones.ts` |
 | Turo and Google ratings | hidden until filled in | `src/config/site.ts` |

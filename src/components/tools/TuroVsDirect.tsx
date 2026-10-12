@@ -37,7 +37,7 @@ export function TuroVsDirect() {
           <div className="flex justify-between"><dt>Turo, as you entered it</dt><dd className="tabular-nums">{turo > 0 ? usd(turo) : "—"}</dd></div>
         </dl>
         {diff !== null && (
-          <p className={`mt-4 font-display text-[22px] font-semibold ${diff > 0 ? "text-pine" : "text-navy"}`}>
+          <p className={`mt-4 font-display text-[22px] font-semibold ${diff > 0 ? "text-pine" : "text-ink"}`}>
             {diff > 0 ? `You save ${usd(Math.round(diff))} booking direct` : "Turo is cheaper for these dates"}
           </p>
         )}

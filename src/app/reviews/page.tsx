@@ -26,19 +26,19 @@ export default function Page() {
       <section className="wrap mt-10 grid gap-6 md:grid-cols-2">
         <div className="card p-6">
           <h2 className="font-display text-[20px] font-semibold">Direct bookings</h2>
-          <p className="mt-2 text-[15px] text-navy-soft">Reviews from guests who booked on this site will appear here after their trips.</p>
+          <p className="mt-2 text-[15px] text-ink-soft">Reviews from guests who booked on this site will appear here after their trips.</p>
         </div>
         <div className="card p-6">
           <h2 className="font-display text-[20px] font-semibold">Elsewhere</h2>
           {badges.length ? (
-            <ul className="mt-3 space-y-2">{badges.map((b) => <li key={b.href}><a href={b.href} className="font-semibold underline decoration-gold decoration-2 underline-offset-4" target="_blank" rel="noopener noreferrer">{b.label}</a></li>)}</ul>
+            <ul className="mt-3 space-y-2">{badges.map((b) => <li key={b.href}><a href={b.href} className="font-semibold underline decoration-brand decoration-2 underline-offset-4" target="_blank" rel="noopener noreferrer">{b.label}</a></li>)}</ul>
           ) : (
-            <p className="mt-2 text-[15px] text-navy-soft">Links to our Turo and Google profiles go here once they&apos;re set up.</p>
+            <p className="mt-2 text-[15px] text-ink-soft">Links to our Turo and Google profiles go here once they&apos;re set up.</p>
           )}
         </div>
       </section>
       <section className="wrap mt-10">
-        <p className="text-[15px] text-navy-soft">Rented from us? <Link href="/about" className="underline">Get in touch</Link> and tell us how it went.</p>
+        <p className="text-[15px] text-ink-soft">Rented from us? <Link href="/about" className="underline">Get in touch</Link> and tell us how it went.</p>
       </section>
     </>
   );

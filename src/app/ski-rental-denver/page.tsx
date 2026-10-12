@@ -65,8 +65,8 @@ export default function Page() {
       aside={
         <div className="card p-5">
           <h2 className="font-display text-[18px] font-semibold">Price your ski trip</h2>
-          <p className="mt-2 text-[14px] text-navy-soft">Resort, days and group size in, car and total cost out.</p>
-          <Link href="/tools/ski-trip-estimator" className="btn-gold mt-4 w-full">Open the estimator</Link>
+          <p className="mt-2 text-[14px] text-ink-soft">Resort, days and group size in, car and total cost out.</p>
+          <Link href="/tools/ski-trip-estimator" className="btn-brand mt-4 w-full">Open the estimator</Link>
         </div>
       }
       faqs={[

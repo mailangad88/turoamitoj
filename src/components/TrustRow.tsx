@@ -15,7 +15,7 @@ export function TrustRow() {
     <ul className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 lg:grid-cols-5">
       {items.map((i) => (
         <li key={i.label}>
-          <div className="font-display text-[22px] font-semibold tabular-nums text-navy">{i.value}</div>
+          <div className="font-display text-[22px] font-semibold tabular-nums text-ink">{i.value}</div>
           <div className="text-[13px] leading-snug text-muted">
             {i.href ? (
               <a href={i.href} className="underline decoration-line underline-offset-4" target="_blank" rel="noopener noreferrer">

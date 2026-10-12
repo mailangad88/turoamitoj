@@ -31,7 +31,7 @@ export default function Page() {
           <h2 className="font-display text-[18px] font-semibold">Contact</h2>
           <p className="mt-3 select-all font-mono">{site.phone}</p>
           <p className="select-all font-mono">{site.email}</p>
-          <p className="mt-3 text-navy-soft">{site.hours}</p>
+          <p className="mt-3 text-ink-soft">{site.hours}</p>
         </aside>
       </section>
     </>

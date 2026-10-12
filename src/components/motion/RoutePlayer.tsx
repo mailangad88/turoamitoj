@@ -16,7 +16,7 @@ export function RoutePlayer() {
     <div
       role="img"
       aria-label="Animated map: the drive from Denver past Morrison and the Eisenhower Tunnel to Breckenridge, about 80 miles on I-70"
-      className="overflow-hidden rounded-xl bg-navy"
+      className="overflow-hidden rounded-xl bg-ink"
       style={{ aspectRatio: `${ROUTE_W} / ${ROUTE_H}` }}
     >
       {still !== null && (

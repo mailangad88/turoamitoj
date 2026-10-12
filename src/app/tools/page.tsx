@@ -20,9 +20,9 @@ export default function Page() {
       <PageHeader eyebrow="Tools" title="Plan the trip before you book" />
       <section className="wrap mt-10 grid gap-5 md:grid-cols-3">
         {tools.map(([href, t, b]) => (
-          <Link key={href} href={href} className="card p-6 transition hover:border-navy/40">
+          <Link key={href} href={href} className="card p-6 transition hover:border-ink/40">
             <span className="font-display text-[21px] font-semibold">{t}</span>
-            <span className="mt-2 block text-[15px] text-navy-soft">{b}</span>
+            <span className="mt-2 block text-[15px] text-ink-soft">{b}</span>
           </Link>
         ))}
       </section>
